@@ -1,19 +1,36 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const riftSoft = localFont({
+  src: [
+    {
+      path: "../public/fonts/rift-soft/Rift Soft Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/rift-soft/Rift Soft Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/rift-soft/Rift Soft Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    {
+      path: "../public/fonts/rift-soft/Rift Soft Bold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-rift-soft",
 });
 
 export const metadata: Metadata = {
-  title: "BEYONDR™",
+  title: "EXPLORE",
   description: "BEYONDR",
 };
 
@@ -23,10 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${riftSoft.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

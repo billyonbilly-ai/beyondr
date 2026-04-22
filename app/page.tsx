@@ -1,14 +1,16 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import Planet from "@/components/Planet";
-import Stars from "@/components/Stars";
+import Planet from "@/components/three/Planet";
+import Stars from "@/components/three/Stars";
+import Sunlight from "@/components/three/Sunlight";
 
 function Welcome() {
   return (
     <div className="relative h-dvh w-full">
       <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
         <Stars />
+        <Sunlight />
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <Planet position={[0, 0, 0]} />

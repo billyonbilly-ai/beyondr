@@ -48,7 +48,7 @@ export default function Sunlight() {
         angle={0.3}
         penumbra={0.5}
         decay={0}
-        intensity={Math.PI * 1.2}
+        intensity={Math.PI * 0.55}
         color="#fff9f0"
       />
 

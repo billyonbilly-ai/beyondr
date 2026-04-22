@@ -10,7 +10,7 @@ export default function Planet(props: React.ComponentProps<"group">) {
   const { nodes, materials } = useGLTF("/models/planet-transformed.glb");
   const { gl } = useThree();
 
-  const baseRotationSpeed = 0.008;
+  const baseRotationSpeed = 0.0015;
   const rotationSpeed = useRef(baseRotationSpeed);
   const targetSpeed = useRef(baseRotationSpeed);
   const isDragging = useRef(false);
@@ -43,7 +43,7 @@ export default function Planet(props: React.ComponentProps<"group">) {
       const deltaX = clientX - previousMouseX.current;
 
       if (deltaX > 0) {
-        const dragSpeed = deltaX * 0.02;
+        const dragSpeed = deltaX * 0.01;
         targetSpeed.current = baseRotationSpeed + dragSpeed;
       }
 

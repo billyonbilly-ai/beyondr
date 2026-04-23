@@ -9,7 +9,7 @@ export default function Sunlight() {
         <group>
           <Lightformer
             form="rect"
-            intensity={8}
+            intensity={13}
             position={[-15, 8, 0]}
             scale={[10, 15, 1]}
             rotation-y={Math.PI / 2}

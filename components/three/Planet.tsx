@@ -5,7 +5,11 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+import { useMediaQuery } from "react-responsive";
+
 export default function Planet(props: React.ComponentProps<"group">) {
+  const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
+
   const group = useRef<THREE.Group>(null);
   const { nodes, materials } = useGLTF("/models/planet-transformed.glb");
   const { gl } = useThree();
@@ -59,8 +63,14 @@ export default function Planet(props: React.ComponentProps<"group">) {
     const onMouseMove = (e: MouseEvent) => handleMove(e.clientX);
     const onMouseUp = () => handleEnd();
 
-    const onTouchStart = (e: TouchEvent) => handleStart(e.touches[0].clientX);
-    const onTouchMove = (e: TouchEvent) => handleMove(e.touches[0].clientX);
+    const onTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      handleStart(e.touches[0].clientX);
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      handleMove(e.touches[0].clientX);
+    };
     const onTouchEnd = () => handleEnd();
 
     canvas.addEventListener("mousedown", onMouseDown);
@@ -68,8 +78,8 @@ export default function Planet(props: React.ComponentProps<"group">) {
     canvas.addEventListener("mouseup", onMouseUp);
     canvas.addEventListener("mouseleave", onMouseUp);
 
-    canvas.addEventListener("touchstart", onTouchStart);
-    canvas.addEventListener("touchmove", onTouchMove);
+    canvas.addEventListener("touchstart", onTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", onTouchMove, { passive: false });
     canvas.addEventListener("touchend", onTouchEnd);
 
     return () => {
@@ -96,7 +106,11 @@ export default function Planet(props: React.ComponentProps<"group">) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
-        <group name="Root" rotation={[-Math.PI / 2, 0, 0]} scale={0.2}>
+        <group
+          name="Root"
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={isMobile ? 0.18 : 0.2}
+        >
           <group name="Ceres" scale={9.385}>
             <mesh
               name="Ceres_0"

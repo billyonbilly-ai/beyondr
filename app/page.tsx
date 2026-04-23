@@ -7,7 +7,7 @@ import Sunlight from "@/components/three/Sunlight";
 
 function Welcome() {
   return (
-    <div className="relative h-dvh w-full">
+    <div className="relative h-dvh w-full touch-none overflow-hidden">
       <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
         <Stars />
         <Sunlight />

@@ -12,6 +12,7 @@
     font-family: var(--font-rift-soft), sans-serif;
     background-color: var(--dark-bg);
     color: var(--brand-orange);
+    font-weight: 500;
   }
   html {
     scroll-behavior: smooth;
@@ -33,7 +34,7 @@
   }
 
   p {
-    font-weight: 400 !important;
+    font-weight: 500 !important;
   }
 }
 
@@ -41,4 +42,10 @@
   --color-brand-white: #fbfaf8;
   --color-brand-black: #262626;
   --color-brand-orange: #fe6847;
+}
+
+@layer components {
+  .nav-link {
+    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white inline-block rounded-full border px-2.25 py-0 text-center backdrop-blur-[2px] transition-all duration-200;
+  }
 }

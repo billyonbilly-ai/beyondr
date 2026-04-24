@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
-import { navLinks } from "../constants";
+import HomeNavbar from "@/components/ui/HomeNavbar";
 import { latest } from "../constants";
 import Image from "next/image";
 
@@ -10,26 +10,23 @@ function HomePage() {
 
   return (
     <main className="bg-brand-white h-dvh w-full p-7">
-      <nav className="flex-center flex justify-between gap-3 text-[18px] font-medium lg:justify-end">
-        {navLinks.map((link) => (
-          <a href={link.to} key={link.link} className="nav-link">
-            {link.link}
-          </a>
-        ))}
-      </nav>
+      <HomeNavbar />
 
-      <div>
-        <div className="relative h-86.25 w-86.25">
-          <Image
-            src={contentImg}
-            alt={contentType}
-            fill
-            className="object-contain"
-          />
+      <div className="flex h-full flex-col items-center justify-center gap-5">
+        <div className="card-shadow w-max rounded-2xl bg-[#fff5f3] p-2">
+          <div className="relative h-86.25 w-86.25">
+            <Image
+              src={contentImg}
+              alt={contentType}
+              fill
+              className="card-shadow rounded-lg object-contain"
+            />
+          </div>
         </div>
 
         <Button
           callback={() => window.open(contentUrl, "_blank", "noreferrer")}
+          className="w-full max-w-70"
         >
           {contentCta}
         </Button>

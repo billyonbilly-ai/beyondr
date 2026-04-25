@@ -11,7 +11,7 @@
   body {
     font-family: var(--font-rift-soft), sans-serif;
     background-color: var(--dark-bg);
-    color: var(--brand-orange);
+    color: var(--light-bg);
     font-weight: 500;
   }
   html {
@@ -46,7 +46,11 @@
 
 @layer components {
   .nav-link {
-    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white inline-block rounded-full border px-2.25 py-0 text-center text-base backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
+    @apply border-brand-white hover:bg-brand-white hover:text-brand-orange inline-block rounded-full border px-2.25 py-0 text-center text-base backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
+  }
+
+  .nav-link-explore {
+    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white text-brand-orange inline-block rounded-full border px-2.25 py-0 text-center text-base backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
   }
 
   .card-shadow {
@@ -55,4 +59,14 @@
       0 1px 2px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

@@ -2,7 +2,7 @@
 
 :root {
   --dark-bg: #121010;
-  --light-bg: #fbfaf8;
+  --light-bg: #fdf9f5;
   --brand-orange: #fe6847;
 }
 
@@ -39,14 +39,14 @@
 }
 
 @theme inline {
-  --color-brand-white: #fbfaf8;
+  --color-brand-white: #fdf9f5;
   --color-brand-black: #121010;
   --color-brand-orange: #fe6847;
 }
 
 @layer components {
   .nav-link {
-    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white inline-block rounded-full border px-2.25 py-0 text-center text-[20px] backdrop-blur-[2px] transition-all duration-200;
+    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white inline-block rounded-full border px-2.25 py-0 text-center text-base backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
   }
 
   .card-shadow {

@@ -18,7 +18,7 @@ function HomeNavbar() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-3 bottom-3 z-50 flex h-12 w-12 flex-col items-center justify-center gap-1.5"
+        className="fixed right-3.5 bottom-3.5 z-50 flex h-12 w-12 flex-col items-center justify-center gap-1.5 sm:right-7 sm:bottom-7"
         aria-label="Toggle menu"
       >
         <span
@@ -39,7 +39,7 @@ function HomeNavbar() {
       </button>
 
       <nav
-        className={`fixed right-3 bottom-3 z-40 flex flex-col items-end gap-3 text-[18px] font-medium transition-all duration-300 ${
+        className={`fixed right-3.5 bottom-3.5 z-40 flex flex-col items-end gap-3 text-[18px] font-medium transition-all duration-300 sm:right-7 sm:bottom-7 ${
           isOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0"

@@ -17,10 +17,7 @@ function Welcome() {
       </Canvas>
 
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-10">
-        <a
-          href="/home"
-          className="pointer-events-auto text-3xl font-extrabold tracking-widest select-none"
-        >
+        <a href="/home" className="nav-link pointer-events-auto">
           EXPLORE
         </a>
       </div>

@@ -46,11 +46,11 @@
 
 @layer components {
   .nav-link {
-    @apply border-brand-white hover:bg-brand-white hover:text-brand-orange inline-block rounded-full border px-2.25 py-0 text-center text-base backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
+    @apply border-brand-white text-brand-white hover:bg-brand-white hover:text-brand-black inline-block rounded-full border px-2.25 py-0 text-center text-[18px] backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
   }
 
   .nav-link-explore {
-    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white text-brand-orange inline-block rounded-full border px-2.25 py-0 text-center text-base backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
+    @apply border-brand-orange hover:bg-brand-orange hover:text-brand-white text-brand-orange inline-block rounded-full border px-2.25 py-0 text-center text-[18px] backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
   }
 
   .card-shadow {

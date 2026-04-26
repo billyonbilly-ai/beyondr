@@ -4,18 +4,16 @@ interface CardProps {
 
 function Card({ trackUrl }: CardProps) {
   return (
-    <div className="h-75 w-100 shrink-0 overflow-hidden rounded-2xl bg-[#fff5f368] p-2">
-      <div className="relative h-full overflow-hidden rounded-xl">
-        <iframe
-          width="100%"
-          height="102%"
-          scrolling="no"
-          frameBorder="no"
-          allow="autoplay"
-          src={trackUrl}
-          className="absolute top-[-1%] left-0 rounded-xl"
-        ></iframe>
-      </div>
+    <div className="w-full max-w-xs overflow-hidden rounded-2xl bg-[#fff5f343] p-2 sm:max-w-sm">
+      <iframe
+        width="100%"
+        height="352"
+        frameBorder="no"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        src={trackUrl}
+        className="rounded-xl"
+        loading="lazy"
+      ></iframe>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { spotifyTracks } from "../constants";
 
 function HomePage() {
   return (
-    <main className="bg-brand-black fixed inset-0 overflow-hidden p-3.5 sm:p-7">
+    <main className="bg-brand-black fixed inset-0 overflow-hidden p-8.5 sm:p-7">
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-50"
         style={{

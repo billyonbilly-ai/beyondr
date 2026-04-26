@@ -4,7 +4,7 @@ interface CardProps {
 
 function Card({ trackUrl }: CardProps) {
   return (
-    <div className="w-full max-w-xs overflow-hidden rounded-2xl bg-[#fff5f343] p-2 sm:max-w-sm">
+    <div className="w-full max-w-sm overflow-hidden rounded-2xl bg-[#fff5f343] p-2 sm:max-w-sm">
       <iframe
         width="100%"
         height="352"

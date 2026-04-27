@@ -1,7 +1,7 @@
 import SoonForm from "@/components/ui/SoonForm";
 import Link from "next/link";
 
-function FilmPage() {
+function ShopPage() {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <nav className="absolute top-0 right-0 z-10 p-6">
@@ -21,4 +21,4 @@ function FilmPage() {
   );
 }
 
-export default FilmPage;
+export default ShopPage;

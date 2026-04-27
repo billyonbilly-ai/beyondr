@@ -18,21 +18,21 @@ function HomeNavbar() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-3.5 bottom-3.5 z-50 flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-[#fff5f343] sm:right-7 sm:bottom-7"
+        className="fixed right-3.5 bottom-3.5 z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full bg-[#fff5f343] sm:right-7 sm:bottom-7"
         aria-label="Toggle menu"
       >
         <span
-          className={`bg-brand-white h-[2.4px] w-7 transition-all duration-300 ${
+          className={`bg-brand-white h-[2.3px] w-6 transition-all duration-300 ${
             isOpen ? "translate-y-2 rotate-45" : ""
           }`}
         />
         <span
-          className={`bg-brand-white h-[2.4px] w-7 transition-all duration-300 ${
+          className={`bg-brand-white h-[2.3px] w-6 transition-all duration-300 ${
             isOpen ? "opacity-0" : ""
           }`}
         />
         <span
-          className={`bg-brand-white h-[2.4px] w-7 transition-all duration-300 ${
+          className={`bg-brand-white h-[2.3px] w-6 transition-all duration-300 ${
             isOpen ? "-translate-y-2 -rotate-45" : ""
           }`}
         />

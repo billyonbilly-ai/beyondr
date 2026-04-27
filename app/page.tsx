@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { Canvas } from "@react-three/fiber";
 import Planet from "@/components/three/Planet";
 import Stars from "@/components/three/Stars";
@@ -17,9 +19,9 @@ function Welcome() {
       </Canvas>
 
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-10">
-        <a href="/home" className="nav-link pointer-events-auto">
+        <Link href="/home" className="nav-link pointer-events-auto">
           EXPLORE
-        </a>
+        </Link>
       </div>
     </div>
   );

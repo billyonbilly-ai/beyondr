@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function ShopPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
+    <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
       <nav className="absolute top-0 right-0 z-10 p-6">
         <Link href="/home" className="text-xl hover:opacity-70">
           Home

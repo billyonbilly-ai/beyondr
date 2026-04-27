@@ -46,7 +46,7 @@
 
 @layer components {
   .nav-link {
-    @apply border-brand-white text-brand-white hover:bg-brand-white hover:text-brand-black inline-block rounded-full border px-2.25 py-0 text-center text-[18px] backdrop-blur-[2px] transition-all duration-200 sm:text-[20px];
+    @apply border-brand-white text-brand-white hover:bg-brand-white hover:text-brand-black inline-block rounded-full border px-2.25 py-0 text-center text-[18px] backdrop-blur-[2px] transition-all duration-200;
   }
 
   .nav-link-explore {

@@ -7,12 +7,19 @@ function SoonForm() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!email.trim()) {
       setMessage("Please enter an email.");
+      setShowMessage(true);
+
+      setTimeout(() => {
+        setShowMessage(false);
+        setMessage("");
+      }, 5000);
       return;
     }
 
@@ -22,43 +29,53 @@ function SoonForm() {
 
       await saveEmail(email);
 
-      setMessage("Thanks! You'll get updates.");
+      setMessage("Talk soon. Thanks.");
+      setShowMessage(true);
       setEmail("");
     } catch (error) {
       console.error(error);
       setMessage("Something went wrong.");
-    } finally {
-      setLoading(false);
+      setShowMessage(true);
+
+      setTimeout(() => {
+        setShowMessage(false);
+        setMessage("");
+        setLoading(false);
+      }, 5000);
     }
   };
 
   return (
     <div>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col items-center gap-8"
-      >
-        <p className="text-xl">Coming Soon</p>
-
-        <input
-          type="email"
-          placeholder="Enter email for updates"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-48 rounded-full bg-[#fff5f343] px-2 py-1 text-xl placeholder:text-xl focus:ring-0 focus:outline-none"
-          required
-        />
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="text-xl hover:opacity-70"
+      {showMessage ? (
+        <div className="flex items-center justify-center">
+          <p className="text-xl">{message}</p>
+        </div>
+      ) : (
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center gap-8"
         >
-          {loading ? "Submitting..." : "Submit"}
-        </button>
+          <p className="text-xl">Coming Soon</p>
 
-        {message && <p>{message}</p>}
-      </form>
+          <input
+            type="email"
+            placeholder="Enter email for updates"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-48 rounded-full bg-[#fff5f343] px-2 py-1 text-xl placeholder:text-xl focus:ring-0 focus:outline-none"
+            required
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="text-xl hover:opacity-70"
+          >
+            {loading ? "Submitting..." : "Submit"}
+          </button>
+        </form>
+      )}
     </div>
   );
 }

@@ -1,65 +1,89 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const starCount = 2000;
-const positions = new Float32Array(starCount * 3);
-const sizes = new Float32Array(starCount);
-const twinkleOffsets = new Float32Array(starCount);
-const twinkleSpeeds = new Float32Array(starCount);
+type StarsProps = {
+  radius?: number;
+  count?: number;
+  size?: number;
+  speed?: number;
+  seed?: number;
+};
 
-for (let i = 0; i < starCount; i++) {
-  const radius = 50;
-  const theta = Math.random() * Math.PI * 2;
-  const phi = Math.acos(Math.random() * 2 - 1);
-
-  positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-  positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-  positions[i * 3 + 2] = radius * Math.cos(phi);
-
-  sizes[i] = Math.random() * 1.5 + 0.5;
-
-  twinkleOffsets[i] = Math.random() * Math.PI * 2;
-
-  twinkleSpeeds[i] = 0.5 + Math.random() * 1.5;
+function seededRandom(seed: number) {
+  let value = seed;
+  return () => {
+    value = (value * 16807) % 2147483647;
+    return (value - 1) / 2147483646;
+  };
 }
 
-export default function Stars() {
-  const starsRef = useRef<THREE.Points>(null);
+export default function Stars({
+  radius = 100,
+  count = 1000,
+  size = 0.1,
+  speed = 0.00008,
+  seed = 1,
+}: StarsProps) {
+  const pointsRef = useRef<THREE.Points>(null);
 
-  useFrame(({ clock }) => {
-    if (starsRef.current) {
-      const geometry = starsRef.current.geometry;
-      const sizeAttribute = geometry.attributes.size as THREE.BufferAttribute;
+  const data = useMemo(() => {
+    const rand = seededRandom(seed);
 
-      for (let i = 0; i < sizes.length; i++) {
-        const baseSize = sizes[i];
-        const offset = twinkleOffsets[i];
-        const speed = twinkleSpeeds[i];
+    const positions = new Float32Array(count * 3);
+    const sizes = new Float32Array(count);
+    const twinkleOffsets = new Float32Array(count);
+    const twinkleSpeeds = new Float32Array(count);
 
-        const twinkle =
-          Math.sin(clock.getElapsedTime() * speed + offset) * 0.3 + 0.7;
-        sizeAttribute.array[i] = baseSize * twinkle;
-      }
+    for (let i = 0; i < count; i++) {
+      const theta = rand() * Math.PI * 2;
+      const phi = Math.acos(rand() * 2 - 1);
 
-      sizeAttribute.needsUpdate = true;
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+
+      positions[i * 3 + 2] = radius * Math.cos(phi);
+
+      sizes[i] = rand() * 1.8 + 0.7;
+
+      twinkleOffsets[i] = rand() * Math.PI * 2;
+      twinkleSpeeds[i] = 0.5 + rand() * 1.5;
     }
+
+    return {
+      positions,
+      sizes,
+      twinkleOffsets,
+      twinkleSpeeds,
+    };
+  }, [count, radius, seed]);
+
+  useFrame(() => {
+    if (!pointsRef.current) return;
+
+    pointsRef.current.rotation.y += speed;
   });
 
   return (
-    <points ref={starsRef}>
+    <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-        <bufferAttribute attach="attributes-size" args={[sizes, 1]} />
+        <bufferAttribute
+          attach="attributes-position"
+          args={[data.positions, 3]}
+        />
+        <bufferAttribute attach="attributes-size" args={[data.sizes, 1]} />
       </bufferGeometry>
+
       <pointsMaterial
-        size={0.1}
+        size={size}
         color="#ffffff"
         transparent
-        opacity={0.8}
+        opacity={0.65}
         sizeAttenuation
+        depthWrite={false}
       />
     </points>
   );

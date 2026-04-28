@@ -9,7 +9,7 @@ export default function Sunlight() {
         <group>
           <Lightformer
             form="rect"
-            intensity={13}
+            intensity={23}
             position={[-15, 8, 0]}
             scale={[10, 15, 1]}
             rotation-y={Math.PI / 2}
@@ -18,7 +18,7 @@ export default function Sunlight() {
 
           <Lightformer
             form="circle"
-            intensity={8}
+            intensity={12}
             position={[-8, 10, 5]}
             scale={8}
             color="#ffd4a3"
@@ -26,7 +26,7 @@ export default function Sunlight() {
 
           <Lightformer
             form="rect"
-            intensity={3}
+            intensity={7}
             position={[12, 3, 2]}
             scale={[8, 12, 1]}
             rotation-y={-Math.PI / 2}
@@ -35,7 +35,7 @@ export default function Sunlight() {
 
           <Lightformer
             form="rect"
-            intensity={2}
+            intensity={7}
             position={[0, -10, -5]}
             scale={[20, 5, 1]}
             color="#1a1a2e"
@@ -48,7 +48,7 @@ export default function Sunlight() {
         angle={0.3}
         penumbra={0.5}
         decay={0}
-        intensity={Math.PI * 0.55}
+        intensity={Math.PI * 0.8}
         color="#fff9f0"
       />
 
@@ -57,7 +57,7 @@ export default function Sunlight() {
         angle={0.25}
         penumbra={0.7}
         decay={0}
-        intensity={Math.PI * 0.4}
+        intensity={Math.PI * 0.45}
         color="#4a5568"
       />
 
@@ -66,7 +66,7 @@ export default function Sunlight() {
         angle={0.4}
         penumbra={0.8}
         decay={0.1}
-        intensity={Math.PI * 0.6}
+        intensity={Math.PI * 0.25}
         color="#2d1810"
       />
     </group>

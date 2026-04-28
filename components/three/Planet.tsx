@@ -5,6 +5,8 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+import Atmosphere from "./Atmosphere";
+
 import { useMediaQuery } from "react-responsive";
 
 export default function Planet(props: React.ComponentProps<"group">) {
@@ -14,7 +16,7 @@ export default function Planet(props: React.ComponentProps<"group">) {
   const { nodes, materials } = useGLTF("/models/planet-transformed.glb");
   const { gl } = useThree();
 
-  const baseRotationSpeed = 0.0015;
+  const baseRotationSpeed = 0.002;
   const rotationSpeed = useRef(baseRotationSpeed);
   const targetSpeed = useRef(baseRotationSpeed);
   const isDragging = useRef(false);
@@ -26,7 +28,9 @@ export default function Planet(props: React.ComponentProps<"group">) {
 
     cloned.color.set("#fe6847");
     cloned.emissive.set("#fe6847");
-    cloned.emissiveIntensity = 0.38;
+    cloned.emissiveIntensity = 0.14;
+    cloned.roughness = 1;
+    cloned.metalness = 0;
 
     return cloned;
   }, [materials]);
@@ -117,6 +121,7 @@ export default function Planet(props: React.ComponentProps<"group">) {
               geometry={ceresNode.geometry}
               material={customMaterial}
             />
+            <Atmosphere />
           </group>
         </group>
       </group>

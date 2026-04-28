@@ -26,6 +26,13 @@ function HomePage() {
           isLoaded ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
+        <div
+          className="pointer-events-none absolute inset-0 z-0 opacity-50"
+          style={{
+            backgroundImage: "url('/images/noise.png')",
+            backgroundRepeat: "repeat",
+          }}
+        />
         <p className="text-brand-white text-xl">Loading...</p>
       </div>
 

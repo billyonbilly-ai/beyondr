@@ -41,6 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${riftSoft.variable} h-full antialiased`}>
+      <head>
+        <link rel="preload" href="/images/noise.png" as="image" />
+      </head>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

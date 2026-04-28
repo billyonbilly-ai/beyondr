@@ -11,5 +11,5 @@ export const navLinks: NavLink[] = [
 
 export const spotifyTracks = [
   "https://open.spotify.com/embed/track/59xylvwdwRWVnzraQV7vKA?utm_source=generator&theme=0",
-  // Add more Spotify track URLs here later
+  // Add more Spotify track embed URLs here later
 ];

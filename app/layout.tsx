@@ -19,7 +19,6 @@ const riftSoft = localFont({
       weight: "500",
       style: "normal",
     },
-
     {
       path: "../public/fonts/rift-soft/Rift Soft Bold.woff2",
       weight: "600",
@@ -32,6 +31,20 @@ const riftSoft = localFont({
 export const metadata: Metadata = {
   title: "EXPLORE",
   description: "BEYONDR",
+
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+
+  openGraph: {
+    images: ["/logo.png"],
+  },
+
+  twitter: {
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({

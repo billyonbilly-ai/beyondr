@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { navLinks } from "@/app/constants";
 
-function HomeNavbar() {
+interface HomeNavbarProps {
+  isPageLoaded: boolean;
+}
+
+function HomeNavbar({ isPageLoaded }: HomeNavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -18,7 +22,11 @@ function HomeNavbar() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-3.5 bottom-3.5 z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full bg-[#fff5f343] sm:right-7 sm:bottom-7"
+        className={`fixed right-3.5 bottom-3.5 z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full bg-[#fff5f343] transition-all duration-700 sm:right-7 sm:bottom-7 ${
+          isPageLoaded
+            ? "translate-x-0 opacity-100"
+            : "translate-x-20 opacity-0"
+        }`}
         aria-label="Toggle menu"
       >
         <span

@@ -29,6 +29,8 @@ const riftSoft = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://beyondr-world.vercel.app"),
+
   title: "EXPLORE",
   description: "BEYONDR",
 
